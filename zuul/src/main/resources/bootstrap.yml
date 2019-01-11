@@ -1,0 +1,37 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+server:
+  port: 8766
+spring:
+  application:
+    name: zuul
+  cloud:
+    config:
+      #uri: http://localhost:8765/config-server
+      discovery:
+        enabled: true
+        service-id: config-server
+      profile: dev
+      label: master
+  rabbitmq:
+      host: localhost
+      port: 5672
+      username: guest
+      password: guest
+#zuul:
+#  routes:
+#    #api-a:
+#      #path: /api-a/**
+#      #serviceId: service-provider
+#    #简洁写法
+#    service-provider: /api-a/**
+#    api-b:
+#      path: /api-b/**
+#      serviceId: consumer
+      #关闭cookie过滤
+      #sensitiveHeaders:
+  #排除某些路由url
+  #ignored-patterns:
+    #- /**/hi
